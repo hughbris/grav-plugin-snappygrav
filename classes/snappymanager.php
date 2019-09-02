@@ -309,6 +309,8 @@ class SnappyManager
       $pdf_option['watermarktextalpha'] = $config->get('plugins.snappygrav.watermarktextalpha') ?: 0.2;
       $pdf_option['showwatermarkimage'] = $config->get('plugins.snappygrav.showwatermarkimage') ?: false;
       $pdf_option['watermarkimgbehind'] = $config->get('plugins.snappygrav.watermarkimgbehind') ?: false;
+      $pdf_option['setautotopmargin'] = $config->get('plugins.snappygrav.setautotopmargin') ?: false;
+      $pdf_option['setautobottommargin'] = $config->get('plugins.snappygrav.setautobottommargin') ?: false;
 
       return $pdf_option;
     }
@@ -347,6 +349,12 @@ class SnappyManager
       $mpdf = new \Mpdf\Mpdf(['mode' => $encoding, 'format' => $format,'orientation' => $orientation]);
 
       $mpdf->SetMargins( $pdf_option['left'],$pdf_option['right'],$pdf_option['top'],$pdf_option['bottom'] );
+      if( $pdf_option['setautotopmargin']) {
+        $mpdf->setAutoTopMargin = $pdf_option['setautotopmargin'];
+      }
+      if( $pdf_option['setautobottommargin']) {
+        $mpdf->setAutoBottomMargin = $pdf_option['setautobottommargin'];
+      }
 
       if( $pdf_option['showwatermarkimage'] ) {
         $mpdf->showWatermarkImage = true;
