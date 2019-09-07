@@ -315,6 +315,15 @@ class SnappyManager
       return $pdf_option;
     }
 
+    public function servePDFDownload($html, $metadata, $export_filename='data.pdf')
+    {
+        $pdf = $this->servePDF([$html], $metadata);
+        header('Content-Type: application/pdf');
+        header("Content-Disposition: attachment; filename=\"{$export_filename}\"");
+        header('Cache-Control: no-cache');
+        echo $pdf;
+        exit(0);
+    }
 
     public function servePDF( $html, $metadata )
     {

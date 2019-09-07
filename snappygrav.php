@@ -183,6 +183,10 @@ class SnappyGravPlugin extends Plugin
             new \Twig_SimpleFunction('snappygrav', [$this, 'generateLink'])
         );
 
+        $this->grav['twig']->twig()->addFunction(
+            new \Twig_SimpleFunction('snappy_serve', [$this->snappymanager, 'servePDFDownload'])
+        );
+
         $this->grav['twig']->twig()->addFilter(
             new \Twig_SimpleFilter('snappy_implode', 'implode')
         );
