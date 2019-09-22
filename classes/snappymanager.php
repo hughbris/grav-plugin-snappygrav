@@ -7,7 +7,10 @@ use RocketTheme\Toolbox\File\JsonFile;
 
 class SnappyManager
 {
-    //public $grav;
+    private $grav;
+    private $config;
+    private $lang;
+
     public $json_response;
     protected $post;
     protected $task;
@@ -16,9 +19,9 @@ class SnappyManager
 
     public function __construct(Grav $grav)
     {
-        //$this->grav     = $grav;
-        //$this->config   = $this->grav['config'];
-        //$this->lang = $this->grav['language'];
+      $this->grav = Grav::instance();
+      $this->config = $this->grav['config'];
+      $this->lang = $this->grav['language'];
     }
 
 
@@ -292,9 +295,8 @@ class SnappyManager
 
     public function getOption()
     {
-      $grav = Grav::instance();
-      $config = $grav['config'];
-      $lang = $grav['language'];
+      $config = $this->config;
+      $lang = $this->lang;
 
       $pdf_option = [];
       $pdf_option['bottom'] = $config->get('plugins.snappygrav.margin_bottom') ?: 10;
@@ -373,8 +375,11 @@ class SnappyManager
 
       if( $pdf_option['showwatermarktext'] ){
         $mpdf->showWatermarkText = true;
-        $mpdf->SetWatermarkText( $pdf_option['setwatermarktext'] );
-        $mpdf->watermarkTextAlpha = $pdf_option['watermarktextalpha'];
+        $watermarktext_set = $this->config->get('plugins.snappygrav.setwatermarktext') AND $this->config->get('plugins.snappygrav.setwatermarktext') != FALSE;
+        if ($watermarktext_set) {
+          $mpdf->SetWatermarkText( $pdf_option['setwatermarktext'] );
+          $mpdf->watermarkTextAlpha = $pdf_option['watermarktextalpha'];
+        }
       }
 
       foreach ($metadata as $k => $v) {
