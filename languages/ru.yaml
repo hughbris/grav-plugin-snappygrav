@@ -105,7 +105,7 @@ PLUGIN_SNAPPYGRAV:
   ENCODING_PLACEHOLDER: "напр. utf-8"
 
   PAGE_SIZE: Размер страницы
-  PAGE_SIZE_HELP: Установите размер бумаги: A4, Letter и т.д.
+  PAGE_SIZE_HELP: 'Установите размер бумаги: A4, Letter и т.д.'
   EXECUTIVE: Executive
   FOLIO: Folio
   LEDGER: Ledger
@@ -165,7 +165,6 @@ PLUGIN_SNAPPYGRAV:
   RED: Красный
   ORANGE: Оранжевый
   PURPLE: Пурпурный
-  DARK: Темный
   GRAY: Серый
   BTN_CANCEL_COLOR: Цвет кнопки Отмена
 

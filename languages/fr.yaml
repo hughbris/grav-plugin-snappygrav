@@ -105,7 +105,7 @@ PLUGIN_SNAPPYGRAV:
   ENCODING_PLACEHOLDER: "p.e.: utf-8"
 
   PAGE_SIZE: Taille de la page
-  PAGE_SIZE_HELP: Définissez le format de papier sur: A4, Lettre, etc.
+  PAGE_SIZE_HELP: 'Définissez le format de papier sur: A4, Lettre, etc.'
   EXECUTIVE: Exécutive
   FOLIO: Folio
   LEDGER: Grand livre
@@ -165,7 +165,6 @@ PLUGIN_SNAPPYGRAV:
   RED: Rouge
   ORANGE: Orange
   PURPLE: Violette
-  DARK: Foncée
   GRAY: Grise  
   BTN_CANCEL_COLOR: Couleur du bouton d'annuler
 

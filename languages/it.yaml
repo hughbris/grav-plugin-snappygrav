@@ -105,7 +105,7 @@ PLUGIN_SNAPPYGRAV:
   ENCODING_PLACEHOLDER: "es. utf-8"
 
   PAGE_SIZE: Dimensioni della pagina
-  PAGE_SIZE_HELP: Imposta il formato della carta a: A4, Lettera, ecc.
+  PAGE_SIZE_HELP: 'Imposta il formato della carta a: A4, Lettera, ecc.'
   EXECUTIVE: Executive
   FOLIO: Folio
   LEDGER: Ledger
@@ -148,7 +148,6 @@ PLUGIN_SNAPPYGRAV:
   JQUERY_CONFIRM: jQuery Confirm v3
   THEME: Tema
   LIGHT: Light
-  DARK: Dark
   MODERN: Modern
   SUPERVAN: Supervan
   MATERIAL: Material

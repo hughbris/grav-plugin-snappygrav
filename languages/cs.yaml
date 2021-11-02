@@ -24,7 +24,7 @@ PLUGIN_SNAPPYGRAV:
   LANDSCAPE: Na šířku
   PORTRAIT: Na výšku
   PAGE_SIZE: Velikost papíru
-  PAGE_SIZE_HELP: Nastavte velikost papíru na: A4, Letter atd.
+  PAGE_SIZE_HELP: 'Nastavte velikost papíru na: A4, Letter atd.'
   EXECUTIVE: Executive
   FOLIO: Folio
   LEDGER: Ledger
