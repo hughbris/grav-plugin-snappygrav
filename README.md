@@ -45,7 +45,7 @@ However it is useful to know that the simplest way to install the libraries from
 
 | Number | Library | Command |
 |--------|---------|---------|
-| 1 | mPDF | `composer require mpdf/mpdf` |
+| 1 | mPDF | `composer require "psr/http-message:^1.0" "psr/log:^1.1.4" mpdf/mpdf` |
 | 2 | TCPDF | `composer require tecnickcom/tcpdf` |
 | 3 | KnpLabs Snappy | `composer require knplabs/knp-snappy` |
 | 4 | Wkhtmltopdf | `composer require h4cc/wkhtmltopdf-i386` or `composer require h4cc/wkhtmltopdf-amd64` or ... (God save administrators!) |

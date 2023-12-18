@@ -1,3 +1,11 @@
+# v2.0-beta
+## 19/12/2023
+
+1. [](#improved)
+    * Remove vendor directory and require `composer require`
+1. [] (#bugfix)
+    * Docs prescribe pinning "psr/http-message" and "psr/log" versions for Grav core compat
+
 # v1.9.1
 ## 01/23/2019
 
