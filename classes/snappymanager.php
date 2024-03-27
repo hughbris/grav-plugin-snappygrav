@@ -313,6 +313,7 @@ class SnappyManager
       $pdf_option['watermarkimgbehind'] = $config->get('plugins.snappygrav.watermarkimgbehind') ?: false;
       $pdf_option['setautotopmargin'] = $config->get('plugins.snappygrav.setautotopmargin') ?: false;
       $pdf_option['setautobottommargin'] = $config->get('plugins.snappygrav.setautobottommargin') ?: false;
+      $pdf_option['cache_dir'] = $config->get('plugins.snappygrav.cache_dir');
 
       return $pdf_option;
     }
@@ -353,11 +354,16 @@ class SnappyManager
     {
       $pdf_option = static::getOption();
 
-      $encoding = $pdf_option['encoding'];
-      $format = $pdf_option['page_size'];
-      $orientation = substr(strtoupper($pdf_option['orientation']),0,1);
+      $mpdf_options = array(
+        'encoding'    => $pdf_option['encoding'],
+        'format'      => $pdf_option['page_size'],
+        'orientation' => substr(strtoupper($pdf_option['orientation']),0,1),
+        );
+      if(!is_null($pdf_option['cache_dir'])) {
+        $mpdf_options['tempDir'] = $pdf_option['cache_dir'];
+      }
 
-      $mpdf = new \Mpdf\Mpdf(['mode' => $encoding, 'format' => $format,'orientation' => $orientation]);
+      $mpdf = new \Mpdf\Mpdf($mpdf_options);
 
       $mpdf->SetMargins( $pdf_option['left'],$pdf_option['right'],$pdf_option['top'],$pdf_option['bottom'] );
       if( $pdf_option['setautotopmargin']) {
