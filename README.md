@@ -50,6 +50,8 @@ However it is useful to know that the simplest way to install the libraries from
 | 3 | KnpLabs Snappy | `composer require knplabs/knp-snappy` |
 | 4 | Wkhtmltopdf | `composer require h4cc/wkhtmltopdf-i386` or `composer require h4cc/wkhtmltopdf-amd64` or ... (God save administrators!) |
 
+You can run `composer install` if you have a fresh copy of the plugin _and_ want to use mPDF (Option 1 above).
+
 # Usage
 
 ## Exporting site pages
