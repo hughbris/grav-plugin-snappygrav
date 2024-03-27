@@ -19,7 +19,7 @@ class SnappyManager
 
     public function __construct(Grav $grav)
     {
-      $this->grav = Grav::instance();
+      $this->grav = $grav ?: Grav::instance();
       $this->config = $this->grav['config'];
       $this->lang = $this->grav['language'];
     }
