@@ -168,6 +168,7 @@ You can do this configuration in the plugin's configuration.  Simply copy the `u
 | title | true | `true` or `false` | Getting title from site page |
 | zoom | 1 | float | Use this zoom factor |
 | print_media_type | true | `true` or `false` | Use print media-type instead of screen. |
+| front_end | true | `true` or `false` | enable front end operations; disable to use only back end PDF engine and tools |
 
 > Note: The expected values for the Paper Size are really many, to know what you are going to read them directly in the [source file](https://github.com/wkhtmltopdf/wkhtmltopdf/blob/master/src/lib/pdfsettings.cc) from line 174 to line 203.
 

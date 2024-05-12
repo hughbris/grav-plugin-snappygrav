@@ -50,3 +50,5 @@ wk_path: ''                     # Path of the wkhtmltopdf program
 wk_position: plugin             # The options are: data, plugin, os (default: plugin)
 zoom: 1                         # Use this zoom factor (default 1) <float>
 # cache_dir: # use this to set an alternate temp directory for mPDF, a subdirectory will be created under this
+
+front_end: true                  # enable/disable front end operations

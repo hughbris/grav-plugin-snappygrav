@@ -18,6 +18,7 @@ class SnappyGravPlugin extends Plugin
     protected $snappymanager;
     protected $taskcontroller;
     protected $json_response = [];
+    protected $options;
 
     protected $listing = array();
 
@@ -64,6 +65,7 @@ class SnappyGravPlugin extends Plugin
         $this->snappymanager = new SnappyManager($this->grav);
         $this->snappymanager->json_response = [];
         $this->grav['snappymanager'] = $this->snappymanager;
+        $this->options = $this->config->get("plugins.{$this->name}");
     }
 
     /**
@@ -197,16 +199,22 @@ class SnappyGravPlugin extends Plugin
      */
     public function onTwigSiteVariables()
     {
-        $this->grav['assets']->add('plugin://snappygrav/assets/js/FileSaver.js');
-        $this->grav['assets']->add('plugin://snappygrav/assets/js/base64-binary.js');
-        $this->grav['assets']->add('plugin://snappygrav/assets/jquery-confirm-v3/css/jquery-confirm.css');
-        $this->grav['assets']->add('plugin://snappygrav/assets/jquery-confirm-v3/js/jquery-confirm.js');
-        $this->grav['assets']->add('plugin://snappygrav/assets/css/snappygrav.css');
+        if($this->options['front_end']) {
+            $this->grav['assets']->add('plugin://snappygrav/assets/js/FileSaver.js');
+            $this->grav['assets']->add('plugin://snappygrav/assets/js/base64-binary.js');
+            $this->grav['assets']->add('plugin://snappygrav/assets/jquery-confirm-v3/css/jquery-confirm.css');
+            $this->grav['assets']->add('plugin://snappygrav/assets/jquery-confirm-v3/js/jquery-confirm.js');
+            $this->grav['assets']->add('plugin://snappygrav/assets/css/snappygrav.css');
+        }
     }
 
 
     public function generateLink($route = null, $options = [])
     {
+        if(!$this->options['front_end']) {
+            $this->grav['debugger']->addMessage("SnappyGrav: you must enable plugin's front_end option to generate PDF links.");
+            return;
+        }
         $snappy_bur = $this->grav['base_url_relative'] . DS;
         $snappy_manager = $this->route.'.json' . DS;
         $snappy_task = 'snappytask:snappy' . DS;
